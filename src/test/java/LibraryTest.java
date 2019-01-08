@@ -64,7 +64,7 @@ public class LibraryTest {
 
     @Test
     public void libraryNotAtCapacity(){
-        assertFalse(library.libraryFull());
+        assertFalse(library.isFull());
     }
 
     @Test
@@ -72,7 +72,31 @@ public class LibraryTest {
         smallLibrary.addBook(book1);
         smallLibrary.addBook(book2);
         smallLibrary.addBook(book3);
-        assertTrue(smallLibrary.libraryFull());
+        assertTrue(smallLibrary.isFull());
+    }
+
+    @Test
+    public void libraryEmpty(){
+        assertTrue(library.isEmpty());
+    }
+
+    @Test
+    public void libraryNotEmpty(){
+        library.addBook(book1);
+        assertFalse(library.isEmpty());
+    }
+
+    @Test
+    public void canRemoveBook(){
+        assertEquals(0, smallLibrary.bookCount());
+        smallLibrary.addBook(book1);
+        assertEquals(1, smallLibrary.bookCount());
+        smallLibrary.addBook(book2);
+        assertEquals(2, smallLibrary.bookCount());
+        smallLibrary.addBook(book3);
+        assertEquals(3, smallLibrary.bookCount());
+        assertEquals(book1, smallLibrary.removeBook());
+        assertEquals(2, smallLibrary.bookCount());
     }
 
 }

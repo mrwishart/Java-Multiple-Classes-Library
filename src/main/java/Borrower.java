@@ -23,4 +23,9 @@ public class Borrower {
     }
 
 
+    public void borrowBook(Library library) {
+        if (!library.isEmpty()){
+            addBook(library.removeBook());
+        }
+    }
 }

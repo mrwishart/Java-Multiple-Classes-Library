@@ -19,12 +19,25 @@ public class Library {
     }
 
     public void addBook(Book book1) {
-        if (!libraryFull()) {
+        if (!isFull()) {
             bookCollection.add(book1);
         }
     }
 
-    public boolean libraryFull(){
+    public boolean isFull(){
         return bookCollection.size() == capacity;
+    }
+
+    public boolean isEmpty() {
+        return bookCollection.isEmpty();
+    }
+
+
+    public Book removeBook() {
+        if (!isEmpty()){
+            return bookCollection.remove(0);
+        } else {
+            return null;
+        }
     }
 }
