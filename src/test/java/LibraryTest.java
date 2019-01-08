@@ -13,6 +13,10 @@ public class LibraryTest {
     public void beforeEach(){
         library = new Library(200);
         smallLibrary = new Library(3);
+        book1 = new Book("The Hitchhiker's Guide", "Douglas Adams", "Sci-fi");
+        book2 = new Book("The God Delusion", "Richard Dawkins", "Factual");
+        book3 = new Book("The Shadow Over Innsmouth", "HP Lovecraft", "Horror");
+        book4 = new Book("Player Of Games", "Iain Banks", "Sci-fi");
     }
 
     @Test
@@ -58,6 +62,17 @@ public class LibraryTest {
         assertEquals(3, smallLibrary.bookCount());
     }
 
-    
+    @Test
+    public void libraryNotAtCapacity(){
+        assertFalse(library.libraryFull());
+    }
+
+    @Test
+    public void libraryAtCapacity(){
+        smallLibrary.addBook(book1);
+        smallLibrary.addBook(book2);
+        smallLibrary.addBook(book3);
+        assertTrue(smallLibrary.libraryFull());
+    }
 
 }

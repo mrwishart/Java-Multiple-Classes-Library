@@ -24,7 +24,7 @@ public class Library {
         }
     }
 
-    private boolean libraryFull(){
+    public boolean libraryFull(){
         return bookCollection.size() == capacity;
     }
 }
